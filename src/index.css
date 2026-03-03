@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-gaming-bg: #0A0A0B;
+  --color-gaming-card: #161618;
+  --color-gaming-accent: #10B981; /* Emerald 500 */
+  --color-gaming-accent-glow: rgba(16, 185, 129, 0.2);
+  --color-gaming-border: rgba(255, 255, 255, 0.05);
+}
+
+@layer base {
+  body {
+    @apply bg-gaming-bg text-gray-100 font-sans antialiased;
+  }
+}
+
+.gaming-card {
+  @apply bg-gaming-card border border-gaming-border rounded-2xl shadow-2xl;
+}
+
+.gaming-glow {
+  box-shadow: 0 0 20px var(--color-gaming-accent-glow);
+}
+
+.gaming-input {
+  @apply bg-black/40 border border-white/5 rounded-xl px-4 py-3 focus:ring-2 focus:ring-gaming-accent/50 focus:border-gaming-accent/50 transition-all outline-none text-gray-100 placeholder:text-gray-600;
+}
+
+.gaming-button-primary {
+  @apply bg-gaming-accent text-black font-bold py-3 px-6 rounded-xl hover:bg-emerald-400 active:scale-95 transition-all shadow-lg shadow-emerald-900/20;
+}
+
+.gaming-button-secondary {
+  @apply bg-white/5 text-gray-300 font-bold py-3 px-6 rounded-xl hover:bg-white/10 active:scale-95 transition-all border border-white/5;
+}

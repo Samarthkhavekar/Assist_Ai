@@ -1,0 +1,5 @@
+{
+  "name": "Assist Ai",
+  "description": "An AI-powered personal assistant for intelligent reminder management and multi-channel notifications.",
+  "requestFramePermissions": ["geolocation"]
+}
