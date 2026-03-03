@@ -683,12 +683,13 @@ async function startServer() {
       app.use(vite.middlewares);
     } else {
       app.use(express.static(path.join(__dirname, "dist")));
-      app.get("*", (req, res) => {
+      app.get("*", (req, res, next) => {
+        if (req.path.startsWith("/api/") || req.path.startsWith("/webhook/")) return next();
         res.sendFile(path.join(__dirname, "dist", "index.html"));
       });
     }
 
-    const PORT = 3000;
+    const PORT = parseInt(process.env.PORT || "3000", 10);
     app.listen(PORT, "0.0.0.0", () => {
       console.log(`[Assist Ai] Server started successfully`);
       console.log(`[Assist Ai] Database connected`);
