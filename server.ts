@@ -371,8 +371,8 @@ async function startServer() {
         success: delivered, 
         message: delivered ? "OTP sent successfully" : "OTP could not be sent via SMS",
         error: error,
-        otp: process.env.NODE_ENV !== 'production' ? otp : null,
-        dev_hint: process.env.NODE_ENV !== 'production' ? "Check server logs or the toast below for the code" : null
+        otp: !delivered ? otp : null,
+        dev_hint: !delivered ? "SMS delivery failed. Use the code shown on screen to log in." : null
       });
     });
 
